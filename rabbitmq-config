@@ -1,0 +1,46 @@
+>>> RabbitMQ server configuration in ubuntu 20.04
+
+apt update
+apt upgrade
+apt install net-tools
+
+apt install rabbitmq-server
+systemctl is-enabled rabbitmq-server
+systemctl enable rabbitmq-server
+systemctl start rabbitmq-server
+systemctl status rabbitmq-server
+
+> Check port & process is running:
+netstat -tilpn
+ps -afx | grep rabbit
+ps -ef | grep rabbit
+
+
+> Enabling RabbitMQ Management Plugin:
+rabbitmq-plugins enable rabbitmq_management
+Enabling plugins on node rabbit@ubuntu:
+rabbitmq_management
+The following plugins have been configured:
+  rabbitmq_management
+  rabbitmq_management_agent
+  rabbitmq_web_dispatch
+Applying plugin configuration to rabbit@ubuntu...
+The following plugins have been enabled:
+  rabbitmq_management
+  rabbitmq_management_agent
+  rabbitmq_web_dispatch
+
+started 3 plugins.
+
+rabbitmq-plugins list
+systemctl restart rabbitmq-server
+
+rabbitmqctl add_user admin passw0rd
+rabbitmqctl set_user_tags admin administrator
+rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+
+cd /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.2/plugins/
+cp /home/ubuntu/rabbitmq_delayed_message_exchange-3.8.0.ez .
+systemctl restart rabbitmq-server
+
+on you browser hit url: http://Server-IP:15672
