@@ -44,3 +44,6 @@ cp /home/ubuntu/rabbitmq_delayed_message_exchange-3.8.0.ez .
 systemctl restart rabbitmq-server
 
 on you browser hit url: http://Server-IP:15672
+
+-------------------------------------
+https://medium.com/bina-nusantara-it-division/setting-up-multicluster-rabbitmq-instances-on-linux-714e90f61770
